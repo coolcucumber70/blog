@@ -1,6 +1,6 @@
 # qt系统学习笔记
 
-## 1、网络通信相关
+## 一、网络通信相关
 
 ### 1.1关于QThread线程类的使用
 
@@ -150,3 +150,38 @@ QByteArray ba = str.toLatin1();
 qDebug()<<ba;
 //输出："abc123"
 ```
+
+## 二、线程同步
+
+### 2.1单纯的使用connect 与run类型的子线程
+
+这个方法看来是有缺陷的，跨线程调取元素，本质上还是属于队列
+
+```cpp
+void QDiceThread::run()
+{//线程任务
+    m_stop=false;//启动线程时令m_stop=false
+    m_seq=0; //掷骰子次数
+    qsrand(QTime::currentTime().msec());//随机数初始化，qsrand是线程安全的
+
+    while(!m_stop)//循环主体
+    {
+        if (!m_Paused)
+        {
+            m_diceValue=qrand(); //获取随机数
+            m_diceValue=(m_diceValue % 6)+1;
+            m_seq++;
+            qDebug() << Q_FUNC_INFO <<"数据地址"<< "0x" + QString::number((unsigned int)(&m_seq),16);
+            emit newValue(m_seq,m_diceValue);  //发射信号
+        }
+        msleep(500); //线程休眠500ms
+    }
+
+//  在  m_stop==true时结束线程任务
+    quit();//相当于  exit(0),退出线程的事件循环
+}
+```
+
+### 直接用锁来写，并将读取函数写到同一个类里面，通过调用定时器来调取槽函数
+
+
