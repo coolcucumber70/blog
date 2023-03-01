@@ -188,3 +188,4 @@ $ git stash list
 
 $ git stash apply stash@{0}
 #### 2.7.3多人协作的时候，如何保证其没有问题
+测试我在dev上面的工作
