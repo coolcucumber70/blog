@@ -12,6 +12,20 @@ conda info --env                        //看看环境
 conda activate python37                 //激活
 conda remove -n python37 --all          //删除
 conda activate pytorch_learn
+conda config --show channels//查看源通道
+//修改下载源
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+
+conda config --set show_channel_urls yes
+
+//移除下载源
+conda config --remove-key channels
+
+python -m pip install --upgrade pip
 
 ```
 
@@ -30,6 +44,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/m
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 conda config --set show_channel_urls yes
+
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch//安装
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
 import torch //
