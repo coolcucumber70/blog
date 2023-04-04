@@ -4,5 +4,6 @@
         "xstring": "cpp",
         "vector": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "workbench.activityBar.visible": true
 }
