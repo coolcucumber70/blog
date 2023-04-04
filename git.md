@@ -49,7 +49,7 @@ git branch -v 查看一个分支的最后一次提交
 git branch --merged  查看哪些分支已经合并到当前分支
 git branch --no-merged 查看所有未合并工作的分支
 ```
-### 2.4远程库操作
+### 2.3远程库推拉
 ```
 git pull origin 远程分支名称:本地分支名称 如果不写本地分支名称，则默认和远程分支同名 ，命令如下：
  git pull origin 远程分支名称
@@ -58,8 +58,16 @@ git pull origin 远程分支名称:本地分支名称 如果不写本地分支�
  假设我本地创建了一个名为dev的分支，远程仓库还没有这个分支，推送的命令是： 
  git push --set-upstream origin dev 这里注意一下 origin后面要习惯不写名字，保证上游分支与本地是同名的
  git branch -d 分支名称--删除分支，注意一点就是不能删除当前分支
- 删除远程分支：git push origin :分支名称
 
+```
+### 2.4远程库关联
+```cpp
+git remote //查看远程的库的名称，远程库的名称
+git remote -v//查看远程的库的地址，push和fetch
+git remote add origin  url--远程库
+git push -u origin master//第一次提交--其中master就是本地分支的名字，由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+git remote rm origin    //此处的“删除”其实是解除了本地和远程的绑定关系，并不是物理上删除了远程库。远程库本身并没有任何改动。要真正删除远程库，需要登录到GitHub，在后台页面找到删除按钮再删除。
+git push origin --delete 分支名//删除远程分支
 ```
 ### 2.5 合并分支
 1、假如我们现在位于分支dev上，刚开发完自己负责的功能，执行了下列命令：
@@ -77,19 +85,10 @@ git merge 分支名称
 5、然后查看状态
 git status
 git push origin master
-### 2.6远程库
-```cpp
-git remote //查看远程的库的名称，远程库的名称
-git remote -v//查看远程的库的地址，push和fetch
-git remote add origin  url--远程库
-git push -u origin master//第一次提交--其中master就是本地分支的名字，由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
-git remote rm origin    //此处的“删除”其实是解除了本地和远程的绑定关系，并不是物理上删除了远程库。远程库本身并没有任何改动。要真正删除远程库，需要登录到GitHub，在后台页面找到删除按钮再删除。
-git push origin --delete 分支名//删除远程分支
-```
+
 ### 2.7高效解决分支 --分支管理策略
 #### 2.7.1分支管理策略
 git merge --no-ff -m "merge with no-ff" dev  //这个合并不是简单的改改指针，合并后分支还是在的
-git merge dev   //合并分支，在master的主支上来合并
 #### 2.7.2 修复bug的方法
 软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。
 当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：
