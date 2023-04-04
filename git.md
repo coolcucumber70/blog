@@ -35,13 +35,12 @@ git reflog  //查看过去的版本号
 
 ### 2.1创建与切换分支
 
-
 ```cpp
 git branch dev //创建分支
 git checkout master //切换分支
 git branch -d dev  //删除分支
 ```
-### 2.3查看分支
+### 2.2查看分支
 ```cpp
 git branch 列出本地已经存在的分支，并且当前分支会用*标记
 git branch -r 查看远程版本库的分支列表
@@ -52,13 +51,13 @@ git branch --no-merged 查看所有未合并工作的分支
 ```
 ### 2.4远程库操作
 ```
-git pull origin 远程分支名称:本地分支名称
-如果不写本地分支名称，则默认和远程分支同名 ，命令如下：
+git pull origin 远程分支名称:本地分支名称 如果不写本地分支名称，则默认和远程分支同名 ，命令如下：
  git pull origin 远程分支名称
  推送到远程仓库：
  git push origin 分支名称
  假设我本地创建了一个名为dev的分支，远程仓库还没有这个分支，推送的命令是： 
  git push --set-upstream origin dev
+ 这里注意一下 origin后面要习惯不写名字，保证上游分支与本地是同名的
  git branch -d 分支名称--删除分支，注意一点就是不能删除当前分支
  删除远程分支：git push origin :分支名称
 
