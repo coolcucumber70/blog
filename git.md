@@ -37,13 +37,9 @@ git reflog  //查看过去的版本号
 
 
 ```cpp
-git checkout -b dev
-git switch -c dev//创建并切换分支
-
-git checkout master //切换分支
-
-git branch -d dev  //删除分支
 git branch dev //创建分支
+git checkout master //切换分支
+git branch -d dev  //删除分支
 ```
 ### 2.3查看分支
 ```cpp
