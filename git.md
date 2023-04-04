@@ -56,8 +56,7 @@ git pull origin 远程分支名称:本地分支名称 如果不写本地分支�
  推送到远程仓库：
  git push origin 分支名称
  假设我本地创建了一个名为dev的分支，远程仓库还没有这个分支，推送的命令是： 
- git push --set-upstream origin dev
- 这里注意一下 origin后面要习惯不写名字，保证上游分支与本地是同名的
+ git push --set-upstream origin dev 这里注意一下 origin后面要习惯不写名字，保证上游分支与本地是同名的
  git branch -d 分支名称--删除分支，注意一点就是不能删除当前分支
  删除远程分支：git push origin :分支名称
 
