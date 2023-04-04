@@ -159,7 +159,7 @@ stash@{0}: WIP on dev: f52c633 add merge
 一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
 
 另一种方式是用git stash pop，恢复的同时把stash内容也删了：
-
+```cpp
 $ git stash pop
 On branch dev
 Changes to be committed:
@@ -180,5 +180,6 @@ $ git stash list
 你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
 
 $ git stash apply stash@{0}
+```
 #### 2.7.3多人协作的时候，如何保证其没有问题
 测试我在dev上面的工作
