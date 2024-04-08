@@ -12,11 +12,11 @@ public:
             }
             else if (s == '/')
             {
-                if (res.back() == '/')
+                if (!res.empty() && res.back() == '/')
                 {
                     continue;
                 }
-                else if (res.back() == '.')
+                else if (!res.empty() &&res.back() == '.')
                 {
                     res.pop_back();
                 }
@@ -27,13 +27,20 @@ public:
             }
             else if (s == '.')
             {
-                if (res.back() == '.')
+                if (!res.empty() &&res.back() == '.')
                 {
                     res.pop_back();
                     if (res.size() > 1)
                     {
                         res.pop_back();
                     }
+                    while(!res.empty()&&isalpha(res.back()))
+                    {
+                        res.pop_back();
+                    }
+                }
+                else{
+                    res+=s;
                 }
             }
         }
