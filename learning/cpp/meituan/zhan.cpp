@@ -1,3 +1,5 @@
+#include<iostream>
+using namespace std;
 class Solution
 {
 public:
@@ -50,3 +52,12 @@ public:
         return res;
     }
 };
+int main(){
+    Solution sol;
+    cout<<"input string:"<<endl;
+    string str;
+    cin>>str;
+    string res=sol.simplifyPath(str);
+    cout<<res<<endl;
+
+}
