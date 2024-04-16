@@ -1,23 +1,22 @@
-
-#include <thread>
 #include <iostream>
+#include <vector>
+#include <sstream>
+int main() {
+    std::string input;
+    std::getline(std::cin, input);  // 读取输入的一行
 
-using namespace std;
-int j = 1;
-void test()
-{
-    int n = 100;
-    for (int i = 0; i < n; i++)
-    {
-        /* code */
-        j++;
+    std::vector<int> nums;
+    std::istringstream iss(input);
+    int num;
+
+    while (iss >> num) {
+        nums.push_back(num);
     }
-};
-int main(){
-    thread t1(test);
-    thread t2(test);
-    t1.json();
-    t2.json();
-    cout<<"j="<<j<<endl;
+
+    // 输出接收到的数组
+    for (int i = 0; i < nums.size(); i++) {
+        std::cout << nums[i] << " ";
+    }
+
     return 0;
 }
