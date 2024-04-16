@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/code_learning/Blog/learning/exam/huawei",
-      "program": "d:/code_learning/Blog/learning/exam/huawei/build/Debug/outDebug",
+      "cwd": "d:/code_learning/Blog/learning/exam/aliguoji",
+      "program": "d:/code_learning/Blog/learning/exam/aliguoji/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
