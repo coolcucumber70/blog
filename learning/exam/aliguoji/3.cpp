@@ -5,9 +5,14 @@ using namespace std;
 vector<vector<pair<int, char>>> edges;
 int dfs(int node)
 {
+<<<<<<< HEAD
     int childrenCount = 0;
     int nocut = -1;
     for (auto child : edges[node])
+=======
+    
+    if (visited[index] == true)
+>>>>>>> 6902d469909503072e3b7667ed094ed6e74c39c1
     {
         childrenCount++;
         if (edges[child].second == 'N')
@@ -33,6 +38,7 @@ int dfs(int node)
         }
         return edges[node].size() - 1 + edges[child].size() + count;
     }
+<<<<<<< HEAD
     else
     {
         int count = 0;
@@ -77,6 +83,12 @@ int dfs(int node)
         }
     }
     return res;
+=======
+    visited[index] = true;
+    count++;
+    dfs(graph[index], count,sindex);
+    visited[index] = false;
+>>>>>>> 6902d469909503072e3b7667ed094ed6e74c39c1
 }
 int main()
 {
