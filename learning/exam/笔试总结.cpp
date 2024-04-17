@@ -29,6 +29,16 @@ else
 {
     std::cout << "Element not found" << std::endl;
 }
+// vector<int,int>中的compare的方法：
+std::sort(numbers.begin(), numbers.end(), [](int a, int b)
+          { return a < b; });
+struct Compare
+{
+    bool operator()(int a, int b) const
+    {
+        return a < b;
+    }
+};
 
 // unordered_map
 unordered_map<string, int> m;
@@ -88,8 +98,8 @@ q.pop_front();
 // 注意是有方向还是无方向
 vector<vector<int>> graph(n + 1);
 
-//华为面试用的一行
-stirng s,t;
-cin>>s;
+// 华为面试用的一行
+stirng s, t;
+cin >> s;
 stringstream ss(s);
-getline(ss,t,',');//用空格的方法
+getline(ss, t, ','); // 用空格的方法
