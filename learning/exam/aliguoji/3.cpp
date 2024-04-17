@@ -8,7 +8,7 @@ vector<int> graph;
 vector<bool> visited;
 void dfs(int index, int &count, int sindex)
 {
-    count++;
+    
     if (visited[index] == true)
     {
         if (sindex == index)
@@ -22,6 +22,7 @@ void dfs(int index, int &count, int sindex)
         }
     }
     visited[index] = true;
+    count++;
     dfs(graph[index], count,sindex);
     visited[index] = false;
 }
