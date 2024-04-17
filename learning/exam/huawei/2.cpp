@@ -21,7 +21,7 @@ int dfs(int i, int j)
 int main()
 {
 
-    cin >> n>>m;
+    cin >> n >> m;
     office = std::vector<std::vector<int>>(n, std::vector<int>(m, 0));
     visit = std::vector<std::vector<int>>(n, std::vector<int>(m, 0));
 
@@ -47,8 +47,9 @@ int main()
             continue;
         }
         relations.insert(x);
-    
-    int sum = dfs(i + 1, j) + dfs(i - 1, j) + dfs(i, j + 1) + dfs(i, j - 1);
-    cout << sum;
-    return 0;
-}
+
+        int sum = dfs(i + 1, j) + dfs(i - 1, j) + dfs(i, j + 1) + dfs(i, j - 1);
+        cout << sum;
+        return 0;
+    }
+}|

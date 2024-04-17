@@ -99,7 +99,23 @@ q.pop_front();
 vector<vector<int>> graph(n + 1);
 
 // 华为面试用的一行
-stirng s, t;
+//用，隔开
+std::string s;
+
 cin >> s;
-stringstream ss(s);
-getline(ss, t, ','); // 用空格的方法
+std::string t;
+
+std::stringstream ss(s);
+while (std::getline(ss, t, ','))
+{
+    std::cout << "Extracted part: " << t << std::endl; // 应输出 "apple"
+}
+//用空格隔开
+std::string s = "1 2 3 4 5";
+    std::stringstream ss(s);
+    int number;
+
+    while (ss >> number) {
+        std::cout << "Extracted number: " << number << std::endl;
+    }
+//数据结构表示
