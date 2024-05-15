@@ -39,6 +39,7 @@ struct Compare
         return a < b;
     }
 };
+std::sort(numbers.begin(), numbers.end(), Compare());
 
 // unordered_map
 unordered_map<string, int> m;
@@ -84,9 +85,6 @@ size_t findfirst = str.find_first_of("Ao");
 priority_queue<int> q; // 等同于 priority_queue<int, vector<int>, less<int>> a;
 // 小根堆
 priority_queue<int, vector<int>, greater<int>> q;
- std::priority_queue<Room, std::vector<Room>, decltype([](const Room& r1, const Room& r2) {
-        return r1.popularity > r2.popularity;
-    })> topRooms;  // 使用 lambda 函数自定义比较方式
 
 // deque
 queue<int> q;
@@ -133,3 +131,13 @@ bool operator <(const node& b)const&
 #define MAXN 100050
 int monster[MAXN];
 int ans[MAXN];
+
+//lamda表达式的使用
+int x = 5;
+int y = 10;
+
+std::function<int(int, int)> sum = [x, y](int a, int b) -> int {
+    return a + b + x + y;
+};
+
+std::cout << sum(2, 3) << std::endl;
